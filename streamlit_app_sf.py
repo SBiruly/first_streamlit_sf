@@ -33,7 +33,6 @@ streamlit.header("check for  working")
 # fruity_response.json() will converts the JSON data from the response into a Python dictionary
 # pandas.json_normalize is used to flatten and normalize nested JSON data into a tabular format
 fruityvice_normalized = pandas.json_normalize(fruity_response.json())
-streamlit.header(fruityvice_normalized)
 # ----------------------------------------------------------------------------
 
 # write your own comment - what does this do?
