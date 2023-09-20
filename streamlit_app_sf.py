@@ -30,14 +30,14 @@ streamlit.text(fruity_response.json())
 # streamlit.header("untill not working")
 streamlit.header("check for  working")
 # write your own comment -what does the next line do? 
+# fruity_response.json() will converts the JSON data from the response into a Python dictionary
+# pandas.json_normalize is used to flatten and normalize nested JSON data into a tabular format
 fruityvice_normalized = pandas.json_normalize(fruity_response.json())
 streamlit.header(fruityvice_normalized)
 # ----------------------------------------------------------------------------
 
-# # write your own comment - what does this do?
-# streamlit.dataframe(fruityvice_normalized)
-# # I don't Know 
-# #----------------------------------------------------------------------------
-# # lets put on some header
-# streamlit.header("check for  working")
-# #-----------------------------------------------------------------------------
+# write your own comment - what does this do?
+# It will view fruityvice_normalized in tabular form(dataframe)
+streamlit.dataframe(fruityvice_normalized)
+
+
