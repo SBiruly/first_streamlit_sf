@@ -33,6 +33,7 @@ streamlit.header("check for  working")
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
+# I don't Know 
 #----------------------------------------------------------------------------
 # lets put on some header
 streamlit.header("check for  working")
