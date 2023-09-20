@@ -24,11 +24,9 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header("Fruityvice Fruit Advice!")
 # To Display fruityvice api response
 import requests
-fruity_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruity_response.json())
+fruity_response = requests.get("https://fruityvice.com/api/fruit/"+"kiwi")
+# streamlit.text(fruity_response.json())
 # ---------------------------------------------------------------------------
-# streamlit.header("untill not working")
-streamlit.header("check for  working")
 # write your own comment -what does the next line do? 
 # fruity_response.json() will converts the JSON data from the response into a Python dictionary
 # pandas.json_normalize is used to flatten and normalize nested JSON data into a tabular format
