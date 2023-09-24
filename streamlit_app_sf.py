@@ -77,7 +77,7 @@ except URLError as e:
 # write your own comment - what does this do?
 # It will view fruityvice_normalized in tabular form(dataframe)
 # streamlit.dataframe(fruityvice_normalized)
-streamlit.stop()
+# streamlit.stop()
 #-----------------------------------------------------------------------------
 # import snowflake.connector
 
@@ -87,17 +87,30 @@ streamlit.stop()
 # my_data_row = my_cur.fetchone()
 # streamlit.text("Hello from Snowflake:")
 # streamlit.text(my_data_row)
-#-----------------------------------------------------------------------------
-my_cnx = snowflake. connector. connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("select * from fruit_load_list")
-my_data_row = my_cur.fetchone()
-streamlit.header("The fruit load contains:")
-streamlit.dataframe(my_data_row)
+# #-----------------------------------------------------------------------------
+# my_cnx = snowflake. connector. connect(**streamlit.secrets["snowflake"])
+# my_cur = my_cnx.cursor()
+# my_cur.execute("select * from fruit_load_list")
+# my_data_row = my_cur.fetchone()
+# streamlit.header("The fruit load contains:")
+# streamlit.dataframe(my_data_row)
+# #-------------------------------------------------------------------------------
+# my_data_rows = my_cur.fetchall()
+# streamlit.header("The fruit load list contains:")
+# streamlit.dataframe(my_data_rows)
 #-------------------------------------------------------------------------------
-my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
+#Snowf1ake-re1ated functions
+def get_fruit_load_list():
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("select * from fruit_load_list")
+    return my_cur.fetchall()
+# Add a button to load the fruit
+if streamlit.button( 'Get Fruit Load List'):
+  my_cnx = snowflake.connector. connect(**streamlit.secrets["snowflake"])
+  my_data_rows = get_fruit_load_list()
+  streamlit.dataframe(my_data_rows)
+streamlit.stop()
 #-------------------------------------------------------------------------------
 streamlit.header("What fruit would you like to add")
 # To Display fruityvice api response
