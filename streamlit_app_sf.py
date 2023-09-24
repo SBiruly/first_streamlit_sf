@@ -24,23 +24,41 @@ fruits_selected=streamlit.multiselect("Pick some fruits:",list(my_fruit_list. in
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 # -------------------------------------------------------------------------
+# streamlit.header("Fruityvice Fruit Advice!")
+# # To Display fruityvice api response
+# fruit_choice = streamlit.text_input('What fruit would you like information about?','Apple')
+# streamlit.write('The user entered ', fruit_choice)
+# # import requests
+# fruity_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+# # streamlit.text(fruity_response.json())
+# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 streamlit.header("Fruityvice Fruit Advice!")
 # To Display fruityvice api response
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Apple')
-streamlit.write('The user entered ', fruit_choice)
-# import requests
-fruity_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-# streamlit.text(fruity_response.json())
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error("Please select a fruit to get information.")
+  else:
+    fruity_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+    fruityvice_normalized = pandas.json_normalize(fruity_response.json())
+    streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
+#-----------------------------------------------------------------------------------------
+# # import requests
+# fruity_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+# # streamlit.text(fruity_response.json())
 # ---------------------------------------------------------------------------
 # write your own comment -what does the next line do? 
 # fruity_response.json() will converts the JSON data from the response into a Python dictionary
 # pandas.json_normalize is used to flatten and normalize nested JSON data into a tabular format
-fruityvice_normalized = pandas.json_normalize(fruity_response.json())
+# fruityvice_normalized = pandas.json_normalize(fruity_response.json())
 # ----------------------------------------------------------------------------
 
 # write your own comment - what does this do?
 # It will view fruityvice_normalized in tabular form(dataframe)
-streamlit.dataframe(fruityvice_normalized)
+# streamlit.dataframe(fruityvice_normalized)
 streamlit.stop()
 #-----------------------------------------------------------------------------
 # import snowflake.connector
