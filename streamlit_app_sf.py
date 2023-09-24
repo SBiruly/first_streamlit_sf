@@ -61,8 +61,8 @@ try:
     back_from_function = get_fruitvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
 
-# except URLError as e:
-#   streamlit.error()
+except URLError as e:
+  streamlit.error()
 #-----------------------------------------------------------------------------------------
 # # import requests
 # fruity_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
