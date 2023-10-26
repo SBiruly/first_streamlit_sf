@@ -5,11 +5,11 @@ st.title("Configuration Input")
 
 # Create input fields for SQL Server connection
 st.header("SQL Server Connection")
-sql_host = st.text_input("Host", value="192.168.0.231", help="Enter the SQL Server host")
-sql_src_db = st.text_input("Source Database", value="TestDB", help="Enter the source database name")
-sql_user = st.text_input("User", value="sa", help="Enter the SQL Server user")
+sql_host = st.text_input("Host",  help="Enter the SQL Server host")
+sql_src_db = st.text_input("Source Database",  help="Enter the source database name")
+sql_user = st.text_input("User",  help="Enter the SQL Server user")
 sql_password = st.text_input("Password", type="password", help="Enter the SQL Server password")
-sql_port = st.number_input("Port", value=1433, help="Enter the SQL Server port")
+sql_port = st.number_input("Port",help="Enter the SQL Server port")
 
 # Create input fields for Snowflake connection
 st.header("Snowflake Connection")
