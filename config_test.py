@@ -57,5 +57,5 @@ if st.button("Save Configuration"):
 # Run the Streamlit app
 if __name__ == "__main__":
     st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.set_page_config(layout="wide")
+    # st.set_page_config(layout="wide")
     st.write("To save the configuration, fill in the fields above and click 'Save Configuration'.")
