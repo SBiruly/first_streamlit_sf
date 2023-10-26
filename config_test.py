@@ -1,5 +1,7 @@
 import streamlit as st
 
+
+config_file_path = "https://github.com/SBiruly/first_streamlit_sf/blob/main/config.txt"
 # Define the Streamlit app
 st.title("Configuration Input")
 
@@ -29,7 +31,7 @@ log_table_name = st.text_input("Log Table Name", value="log_table", help="Enter 
 
 # Save the configuration to a text file
 if st.button("Save Configuration"):
-    with open("config.txt", "w") as file:
+    with open("config_file_path", "w") as file:
         file.write("[SQL_SERVER_CONNECTION]\n")
         file.write(f"host = {sql_host}\n")
         file.write(f"src_db = {sql_src_db}\n")
