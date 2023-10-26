@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-config_file_path = "https://github.com/SBiruly/first_streamlit_sf/blob/main/config.txt"
+config_file_path = "https://github.com/SBiruly/first_streamlit_sf/blob/main/xxyz.txt"
 # Define the Streamlit app
 st.title("Configuration Input")
 
